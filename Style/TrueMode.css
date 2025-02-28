@@ -1,0 +1,312 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Základní styl pro tělo stránky */
+body {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Hero sekce */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../Images/kniha.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.hero span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+/* About sekce */
+.aboutWrapper {
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+/* About sekce */
+.about {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+/* Obrázková část */
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Textová část */
+.about-text {
+    flex: 1;
+}
+
+/* Vertikální čára ZA textem */
+.about-divider {
+    width: 3px; /* Tloušťka čáry */
+    height: 150px; /* Výška čáry */
+    background-color: black; /* Barva čáry */
+    border-radius: 2px;
+}
+
+.about-text h1 {
+    font-size: 2.5em;
+    color: black;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    color: black;
+    line-height: 1.6;
+}
+
+.projectsWrapper {
+    width: 100%;
+    background-image: url("../Images/kniha.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Přizpůsobí se velikosti obrazovky */
+    gap: 20px;
+    width: 90vw; /* Zvětšení šířky */
+    max-width: 1400px; /* Volitelně větší max-width */
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* Responzivita: Pokud je menší obrazovka, tak snížit počet sloupců */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 sloupce na menších obrazovkách */
+    }
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 sloupce na menších obrazovkách */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 sloupce na mobilech */
+    }
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 sloupce na mobilech */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 sloupec na velmi malých displejích */
+    }
+    .skills-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 sloupec na malých displejích */
+    }
+}
+
+/* Styl pro jednotlivé projekty */
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    background: whitesmoke; /* Jemné pozadí */
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.project-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.project-text {
+    margin-top: 10px;
+    color: black;
+}
+
+.project-text h2 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.project-text p {
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+.project-text h6 {
+    font-size: 0.8em;
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+/* Efekt při najetí myší */
+.project-item:hover {
+    background: rgba(245, 245, 245, 0.758);
+    transform: scale(1.1);
+}
+
+
+.skillsWrapper {
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.skills {
+    width: 80%; /* Zmenší celkovou šířku */
+    max-width: 1000px; /* Místo 1200px dáme 1000px */
+    text-align: center;
+}
+
+.skills h2 {
+    margin-top: 40px;
+    font-size: 1,5em;
+    color: #333;
+}
+
+/* Grid styl */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Pokud je jen jeden item na řádce, roztáhne se na celou šířku */
+    gap: 20px;
+    width: 100%; /* Zajistí, že bude mít celou šířku rodiče */
+    max-width: 1400px; /* Zůstane maximální šířka pro velké obrazovky */
+    margin: 0 auto; /* Zarovná na střed */
+    padding: 20px 0;
+    align-items: stretch; /* Zajišťuje, že všechny položky se roztáhnou na stejnou výšku */
+}
+
+/* Styl pro jednotlivé položky */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.skill-item img {
+    width: 50px; /* Nastav velikost loga */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.skill-item span {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Hover efekt */
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+#skillLevel{
+    font-size: 0.8em;
+    color: #333333;
+    font-weight: bold;
+}
+
+.galleryWrapper {
+    width: 100%;
+    background-image: url("../Images/kniha.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.gallery {
+    color: whitesmoke;
+}
+
+.contactsWrapper {
+    width: 100%;
+    background-color: #f0f0f0; /* Světle šedé pozadí pro kontrast */
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.experimentalWrapper {
+    width: 100%;
+    background-color: #f0f0f0; /* Světle šedé pozadí pro kontrast */
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
