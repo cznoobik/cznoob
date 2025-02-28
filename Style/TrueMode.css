@@ -145,6 +145,9 @@ nav a {
     .skills-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 sloupce na menších obrazovkách */
     }
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 sloupce na menších obrazovkách */
+    }
 }
 
 @media (max-width: 768px) {
@@ -154,6 +157,9 @@ nav a {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 sloupce na mobilech */
     }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 sloupce na mobilech */
+    }
 }
 
 @media (max-width: 480px) {
@@ -161,6 +167,9 @@ nav a {
         grid-template-columns: repeat(1, 1fr); /* 1 sloupec na velmi malých displejích */
     }
     .skills-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 sloupec na malých displejích */
+    }
+    .gallery-grid {
         grid-template-columns: repeat(1, 1fr); /* 1 sloupec na malých displejích */
     }
 }
@@ -188,6 +197,14 @@ nav a {
 .project-text {
     margin-top: 10px;
     color: black;
+}
+
+.projects h1{
+    margin-top: 10px;
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    display: flex;
 }
 
 .project-text h2 {
@@ -225,6 +242,14 @@ nav a {
     width: 80%; /* Zmenší celkovou šířku */
     max-width: 1000px; /* Místo 1200px dáme 1000px */
     text-align: center;
+}
+
+.skills h1{
+    margin-top: 10px;
+    font-size: 3rem;
+    color: #333;
+    justify-content: center;
+    display: flex;
 }
 
 .skills h2 {
@@ -280,6 +305,7 @@ nav a {
     font-weight: bold;
 }
 
+/* Wrapper pro galerii */
 .galleryWrapper {
     width: 100%;
     background-image: url("../Images/kniha.jpg");
@@ -291,9 +317,119 @@ nav a {
     padding: 50px 0;
 }
 
+/* Galerie */
 .gallery {
-    color: whitesmoke;
+    width: 90vw;
+    max-width: 1400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* Grid pro galerii */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Položky v galerii */
+.gallery-item {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+/* Obrázky */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover efekt pro obrázky (zvětšení obrázku a rámečku) */
+.gallery-item:hover {
+    transform: scale(1.05); /* Zvětší celý obrázek i rámeček */
+    border-color: white; /* Při hoveru obrázek dostane bílý rámeček */
+}
+
+/* Overlay s textem - skrytý, dokud na něj neklikneme */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Poloprůhledné pozadí */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 15px;
+    pointer-events: none; /* Zajistí, že overlay nebude rušit kliknutí */
+}
+
+.overlay .hidden-text {
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    display: none;
+}
+
+/* Zobrazení textu při kliknutí na obrázek */
+.gallery-item.active .overlay {
+    opacity: 1;
+    pointer-events: all; /* Umožní interakci s overlay */
+}
+
+.gallery-item.active .hidden-text {
+    display: block; /* Zobrazí text při aktivaci */
+}
+
+/* Fullscreen efekty */
+.fullscreen-img-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Když je obrázek v režimu fullscreen, odstraníme zaoblené rohy */
+.fullscreen-img-wrapper img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 0; /* Odstraní zaoblené rohy */
+}
+
+.fullscreen-img-wrapper .fullscreen-text {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Skrýt fullscreen obrázek po kliknutí */
+.fullscreen-img-wrapper.active {
+    display: flex;
+}
+
 
 .contactsWrapper {
     width: 100%;
