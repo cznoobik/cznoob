@@ -1,0 +1,5 @@
+/*  Tento background fixed můžeš použít kdekoli kde používáš background-image: url(...);  */
+
+.bg-fixed {
+    background-attachment: fixed;
+}
