@@ -170,6 +170,33 @@ nav a {
     .fullscreen-img-wrapper {
         flex-direction: column; /* Text bude pod obrázkem */
     }
+
+    
+}
+
+
+@media (max-width: 600px) {
+    .contact-content {
+        flex-direction: column; /* Prvky se přeskládají pod sebe */
+        gap: 15px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .social-icons svg {
+        width: 30px; /* Zmenšení ikon */
+        height: 30px;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .contact-info p {
+        font-size: 1em; /* Zmenšení textu */
+    }
 }
 
 @media (max-width: 480px) {
@@ -453,13 +480,76 @@ nav a {
 }
 
 
+
+
 .contactsWrapper {
     width: 100%;
-    background-color: #f0f0f0; /* Světle šedé pozadí pro kontrast */
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     padding: 50px 0;
 }
+
+.contacts {
+    text-align: center;
+    color: #333;
+    width: 80%;
+    max-width: 600px;
+}
+
+.contacts h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.contacts hr {
+    width: 50%;
+    border: 1px solid #333;
+    margin: 10px auto 20px auto;
+}
+
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Povolit zalomení prvků na menších displejích */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    stroke: #333;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-icons svg {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
+    stroke: #333;
+}
+
+.social-icons svg:hover {
+    transform: scale(1.2);
+}
+
+.divider {
+    width: 3px;
+    height: 80px;
+    background-color: #333;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+
+
+
 
 .experimentalWrapper {
     width: 100%;
@@ -505,6 +595,11 @@ footer {
     align-items: center;
     justify-content: center;
     stroke: #333;
+    }
+    
+
+    .icon:hover {
+        transform: scale(1.2);
     }
     
     .footerContacts {
