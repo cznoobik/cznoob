@@ -550,6 +550,13 @@ nav a {
 
 
 
+.youtube:hover { fill: red; }
+.github:hover { fill: #7289DA; }
+.twitter:hover { fill: #303958; }
+.instagram:hover { fill: #E1306C; }
+
+
+
 
 .experimentalWrapper {
     width: 100%;
