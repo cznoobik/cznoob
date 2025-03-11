@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Šimon Pícha</title>
     <link href="Images/effect.png" rel="icon" type="image/x-icon">
-    <link href="Style/TrueMode.css" rel="stylesheet">
+    <link id="mode-stylesheet" href="Style/TrueMode.css" rel="stylesheet">
+    <!-- <link href="Style/DarkMode.css" rel="stylesheet"> -->
     <!-- <link href="Style/DarkMode.css" rel="stylesheet"> -->
     <!-- <link href="Style/LightMode.css" rel="stylesheet"> -->
 </head>
 <body>
     <nav>
-        <a href="#About">ABOUT ME</a>
-        <a href="#Projects">PROJECTS</a>
-        <a href="#Skills">SKILLS</a>
-        <a href="#Gallery">GALLERY</a>
-        <a href="#Contacts">CONTACTS</a>
-        <a href="#Experimental">EXPERIMENTAL</a>
+        <div class="nav-container">
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="nav-links">
+                <a href="#About">ABOUT ME</a>
+                <a href="#Projects">PROJECTS</a>
+                <a href="#Skills">SKILLS</a>
+                <a href="#Gallery">GALLERY</a>
+                <a href="#Contacts">CONTACTS</a>
+                <a href="#Experimental">EXPERIMENTAL</a>
+            </div>
+        </div>
+        <div class="dropdown-menu">
+            <a href="#About">ABOUT ME</a>
+            <a href="#Projects">PROJECTS</a>
+            <a href="#Skills">SKILLS</a>
+            <a href="#Gallery">GALLERY</a>
+            <a href="#Contacts">CONTACTS</a>
+            <a href="#Experimental">EXPERIMENTAL</a>
+        </div>
     </nav>
 
 
@@ -299,11 +313,38 @@
 
 
 
-    <div class="experimentalWrapper">
-        <div class="experimental" id="Experimental">
-            <h1>Experimental</h1>
-        </div> 
+<div class="experimentalWrapper">
+    <div class="experimental" id="Experimental">
+        <h1>Experimental Features</h1>
+
+        <!-- Input pro jméno -->
+        <div class="row">
+            <input type="text" id="nameInput" placeholder="Zadej své jméno" />
+            <div id="greeting">Ahoj: <span id="userName">Neznámý</span></div>
+        </div>
+
+        <!-- Datum a čas -->
+        <div class="row">
+            <div id="datetime"></div>
+            <button id="locationButton">Dox me</button>
+        </div>
+
+        <hr>
+
+        <!-- Mapy a souřadnice -->
+        <div class="map-container hidden" id="mapContainer"></div>
+
+        <hr>
+
+        <!-- Tlačítko restart -->
+        <button class="ultimate-button" id="restartButton">Restart</button>
+        <button onclick="changeMode('dark');">Dark Mode</button>
+        <button onclick="changeMode('light');">Light Mode</button>
+        <button onclick="changeMode('true');">True Mode</button>
     </div>
+</div>
+
+
 
     <footer>
         <div class="footerIcons">
