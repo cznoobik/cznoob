@@ -1,6 +1,12 @@
 // Najdeme všechny obrázky v galerii
 const galleryItems = document.querySelectorAll('.gallery-item');
 
+function toggleMenu() {
+    const dropdown = document.querySelector(".dropdown-menu");
+    dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+}
+
+
 // Najdeme nebo vytvoříme fullscreen wrapper
 let fullscreenWrapper = document.querySelector('.fullscreen-img-wrapper');
 if (!fullscreenWrapper) {
@@ -42,3 +48,33 @@ galleryItems.forEach(item => {
         });
     });
 });
+
+
+
+
+
+// EXPERIMENTAL P5EKLIK BAREV
+
+function changeMode(mode) {
+    // Najdeme nebo vytvoříme <link> pro změnu stylu
+    let linkElement = document.getElementById("mode-stylesheet");
+
+    // Pokud <link> ještě neexistuje, vytvoříme nový
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "mode-stylesheet";
+        linkElement.rel = "stylesheet";
+        document.head.appendChild(linkElement);
+    }
+
+    // Změníme href atribut podle hodnoty mode
+    if (mode === "dark") {
+        linkElement.href = "Style/DarkMode.css";
+    } else if (mode === "light") {
+        linkElement.href = "Style/LightMode.css";
+    } else if (mode === "true") {
+        linkElement.href = "Style/TrueMode.css";
+    } else {
+        console.log("Neplatný mód");
+    }
+}
