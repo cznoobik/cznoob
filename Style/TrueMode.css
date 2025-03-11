@@ -17,6 +17,7 @@ body {
 }
 
 /* Navbar */
+/* Základní styl navbaru */
 nav {
     position: fixed;
     top: 0;
@@ -26,16 +27,70 @@ nav {
     backdrop-filter: blur(10px);
     padding: 10px 20px;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
     z-index: 10;
 }
 
-nav a {
+/* Container uvnitř navbaru */
+.nav-container {
+    display: flex;
+    justify-content: center; /* Zarovnání na střed */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Odkazy v navbaru */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
+}
+
+/* Skrytí hamburger menu na velkých obrazovkách */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%; /* Přes celou šířku */
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 0; /* Odebrání zaoblení */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Styl pro odkazy v dropdown menu */
+.dropdown-menu a {
+    color: whitesmoke;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* Hero sekce */
@@ -46,12 +101,15 @@ nav a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: whitesmoke;
+
+    background-attachment: fixed;
 }
 
 .hero h1 {
@@ -171,6 +229,14 @@ nav a {
         flex-direction: column; /* Text bude pod obrázkem */
     }
 
+    .nav-links {
+            display: none;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
     
 }
 
@@ -216,6 +282,12 @@ nav a {
 
     .fullscreen-img-wrapper img {
         max-height: 50vh; /* Menší obrázek na velmi malých displejích */
+    }
+
+    @media screen and (max-width: 700px) {
+        .hero {
+            font-size: 2.23vw;
+        }
     }
 }
 
@@ -551,20 +623,12 @@ nav a {
 
 
 .youtube:hover { fill: red; }
-.github:hover { fill: #7289DA; }
-.twitter:hover { fill: #303958; }
+.twitter:hover { fill: #7289DA; }
+.github:hover { fill: #303958; }
 .instagram:hover { fill: #E1306C; }
 
 
 
-
-.experimentalWrapper {
-    width: 100%;
-    background-color: #f0f0f0; /* Světle šedé pozadí pro kontrast */
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
-}
 
 
 
