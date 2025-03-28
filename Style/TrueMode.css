@@ -425,7 +425,7 @@ nav {
 /* Wrapper pro galerii */
 .galleryWrapper {
     width: 100%;
-    background-image: url("../Images/kniha.jpg");
+    background-image: url("../Images/Gallery/Gallery-Ja.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
